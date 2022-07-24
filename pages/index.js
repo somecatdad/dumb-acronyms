@@ -12,7 +12,7 @@ export default function Home() {
   };
 
   const handleSubmit = (event) => {
-    fetch('http://localhost:8081/getDefinition/' + inputValue)
+    fetch(`${process.env.API_URL}/getDefinition/` + inputValue)
       .then(res => res.json())
       .then(result => setDefinition(result.word));
     event.preventDefault();
