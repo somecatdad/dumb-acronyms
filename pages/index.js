@@ -7,12 +7,11 @@ export default function Home() {
   const [definition, setDefinition] = useState(undefined);
 
   const handleInputChange = (event) => {
-    console.log(event.target.value);
     setInputValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    fetch(`${process.env.API_URL}/getDefinition/${inputValue}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/getDefinition/${inputValue}`)
       .then(res => res.json())
       .then(result => setDefinition(result.word));
     event.preventDefault();
